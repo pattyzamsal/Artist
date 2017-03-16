@@ -24,6 +24,7 @@
 		29B5B6E9F69A336BAF1553E3 /* Pods_ProofKogiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E35A1A7A88B0A9ED69066D01 /* Pods_ProofKogiUITests.framework */; };
 		6171275935ED01C2A71EC5F1 /* Pods_ProofKogiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ADE8EB3EFDC6A0FDFD57877 /* Pods_ProofKogiTests.framework */; };
 		6B9948CFD807D39C113F105B /* Pods_ProofKogi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC1AEBE0185D32813A6C46A8 /* Pods_ProofKogi.framework */; };
+		72A345BA1E7B1CC500F645A0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 72A345BC1E7B1CC500F645A0 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,9 @@
 		2DA616EE5942012747B76B13 /* Pods-ProofKogiUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProofKogiUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ProofKogiUITests/Pods-ProofKogiUITests.release.xcconfig"; sourceTree = "<group>"; };
 		38F4EC63AFBAB1CA1BBE2622 /* Pods-ProofKogi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProofKogi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProofKogi/Pods-ProofKogi.debug.xcconfig"; sourceTree = "<group>"; };
 		4ADE8EB3EFDC6A0FDFD57877 /* Pods_ProofKogiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProofKogiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		72A345BB1E7B1CC500F645A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		72A345BD1E7B1CCB00F645A0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		72A345BF1E7B271800F645A0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		AC1AEBE0185D32813A6C46A8 /* Pods_ProofKogi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProofKogi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C942846C908A1636717ADB70 /* Pods-ProofKogiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProofKogiTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProofKogiTests/Pods-ProofKogiTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E35A1A7A88B0A9ED69066D01 /* Pods_ProofKogiUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProofKogiUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,6 +145,7 @@
 				27188F001E7A1E1C00642505 /* LaunchScreen.storyboard */,
 				27188F031E7A1E1C00642505 /* Info.plist */,
 				27188F2D1E7A395D00642505 /* API.swift */,
+				72A345BC1E7B1CC500F645A0 /* Localizable.strings */,
 			);
 			path = ProofKogi;
 			sourceTree = "<group>";
@@ -269,7 +274,7 @@
 				TargetAttributes = {
 					27188EF31E7A1E1C00642505 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = N9FSLA7YU6;
+						DevelopmentTeam = 5HVRFN9385;
 						ProvisioningStyle = Automatic;
 					};
 					27188F071E7A1E1C00642505 = {
@@ -312,6 +317,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				27188F021E7A1E1C00642505 /* LaunchScreen.storyboard in Resources */,
+				72A345BA1E7B1CC500F645A0 /* Localizable.strings in Resources */,
 				27188EFF1E7A1E1C00642505 /* Assets.xcassets in Resources */,
 				27188EFD1E7A1E1C00642505 /* Main.storyboard in Resources */,
 			);
@@ -518,6 +524,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				27188EFC1E7A1E1C00642505 /* Base */,
+				72A345BF1E7B271800F645A0 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -528,6 +535,16 @@
 				27188F011E7A1E1C00642505 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		72A345BC1E7B1CC500F645A0 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				72A345BB1E7B1CC500F645A0 /* Base */,
+				72A345BD1E7B1CCB00F645A0 /* en */,
+			);
+			name = Localizable.strings;
+			path = Translations;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -631,7 +648,7 @@
 			baseConfigurationReference = 38F4EC63AFBAB1CA1BBE2622 /* Pods-ProofKogi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = N9FSLA7YU6;
+				DEVELOPMENT_TEAM = 5HVRFN9385;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/Alamofire",
@@ -654,7 +671,7 @@
 			baseConfigurationReference = 08E539621F4013DC924E1BAA /* Pods-ProofKogi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = N9FSLA7YU6;
+				DEVELOPMENT_TEAM = 5HVRFN9385;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/Alamofire",
