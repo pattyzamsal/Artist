@@ -14,6 +14,10 @@
 		27188F021E7A1E1C00642505 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27188F001E7A1E1C00642505 /* LaunchScreen.storyboard */; };
 		27188F0D1E7A1E1C00642505 /* ProofKogiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27188F0C1E7A1E1C00642505 /* ProofKogiTests.swift */; };
 		27188F181E7A1E1C00642505 /* ProofKogiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27188F171E7A1E1C00642505 /* ProofKogiUITests.swift */; };
+		27188F2E1E7A395D00642505 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27188F2D1E7A395D00642505 /* API.swift */; };
+		27188F361E7A45F600642505 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27188F351E7A45F600642505 /* Alamofire.framework */; };
+		27188F381E7A460500642505 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27188F371E7A460500642505 /* SwiftyJSON.framework */; };
+		27188F3A1E7A460B00642505 /* TextFieldEffects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27188F391E7A460B00642505 /* TextFieldEffects.framework */; };
 		29B5B6E9F69A336BAF1553E3 /* Pods_ProofKogiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E35A1A7A88B0A9ED69066D01 /* Pods_ProofKogiUITests.framework */; };
 		6171275935ED01C2A71EC5F1 /* Pods_ProofKogiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ADE8EB3EFDC6A0FDFD57877 /* Pods_ProofKogiTests.framework */; };
 		6B9948CFD807D39C113F105B /* Pods_ProofKogi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC1AEBE0185D32813A6C46A8 /* Pods_ProofKogi.framework */; };
@@ -52,6 +56,11 @@
 		27188F131E7A1E1C00642505 /* ProofKogiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProofKogiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		27188F171E7A1E1C00642505 /* ProofKogiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProofKogiUITests.swift; sourceTree = "<group>"; };
 		27188F191E7A1E1C00642505 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		27188F2D1E7A395D00642505 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		27188F311E7A423400642505 /* Podfile.lock */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
+		27188F351E7A45F600642505 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
+		27188F371E7A460500642505 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "Pods/../build/Debug-iphoneos/SwiftyJSON/SwiftyJSON.framework"; sourceTree = "<group>"; };
+		27188F391E7A460B00642505 /* TextFieldEffects.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TextFieldEffects.framework; path = "Pods/../build/Debug-iphoneos/TextFieldEffects/TextFieldEffects.framework"; sourceTree = "<group>"; };
 		2DA616EE5942012747B76B13 /* Pods-ProofKogiUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProofKogiUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ProofKogiUITests/Pods-ProofKogiUITests.release.xcconfig"; sourceTree = "<group>"; };
 		38F4EC63AFBAB1CA1BBE2622 /* Pods-ProofKogi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProofKogi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProofKogi/Pods-ProofKogi.debug.xcconfig"; sourceTree = "<group>"; };
 		4ADE8EB3EFDC6A0FDFD57877 /* Pods_ProofKogiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProofKogiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +75,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27188F3A1E7A460B00642505 /* TextFieldEffects.framework in Frameworks */,
+				27188F381E7A460500642505 /* SwiftyJSON.framework in Frameworks */,
+				27188F361E7A45F600642505 /* Alamofire.framework in Frameworks */,
 				6B9948CFD807D39C113F105B /* Pods_ProofKogi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -120,6 +132,7 @@
 				27188EFE1E7A1E1C00642505 /* Assets.xcassets */,
 				27188F001E7A1E1C00642505 /* LaunchScreen.storyboard */,
 				27188F031E7A1E1C00642505 /* Info.plist */,
+				27188F2D1E7A395D00642505 /* API.swift */,
 			);
 			path = ProofKogi;
 			sourceTree = "<group>";
@@ -145,6 +158,10 @@
 		3815AAA8468E214159422154 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				27188F391E7A460B00642505 /* TextFieldEffects.framework */,
+				27188F371E7A460500642505 /* SwiftyJSON.framework */,
+				27188F351E7A45F600642505 /* Alamofire.framework */,
+				27188F311E7A423400642505 /* Podfile.lock */,
 				AC1AEBE0185D32813A6C46A8 /* Pods_ProofKogi.framework */,
 				4ADE8EB3EFDC6A0FDFD57877 /* Pods_ProofKogiTests.framework */,
 				E35A1A7A88B0A9ED69066D01 /* Pods_ProofKogiUITests.framework */,
@@ -450,6 +467,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				27188EFA1E7A1E1C00642505 /* ViewController.swift in Sources */,
+				27188F2E1E7A395D00642505 /* API.swift in Sources */,
 				27188EF81E7A1E1C00642505 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -604,6 +622,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = N9FSLA7YU6;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/Alamofire",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/SwiftyJSON",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/TextFieldEffects",
+				);
 				INFOPLIST_FILE = ProofKogi/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -619,6 +643,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = N9FSLA7YU6;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/Alamofire",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/SwiftyJSON",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/TextFieldEffects",
+				);
 				INFOPLIST_FILE = ProofKogi/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
