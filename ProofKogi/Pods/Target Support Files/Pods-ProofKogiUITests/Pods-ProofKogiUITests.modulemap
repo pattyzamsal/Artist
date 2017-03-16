@@ -1,0 +1,6 @@
+framework module Pods_ProofKogiUITests {
+  umbrella header "Pods-ProofKogiUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
