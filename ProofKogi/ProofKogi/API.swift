@@ -12,7 +12,7 @@ import Alamofire
 enum Router : URLRequestConvertible {
     static var baseURLString = "https://api.spotify.com/v1/"
     
-    static var params = [Any]()t
+    static var params = [Any]()
     
     // Search
     case search([String : AnyObject])
@@ -43,14 +43,14 @@ enum Router : URLRequestConvertible {
         let URL = try Router.baseURLString.asURL()
         
         var urlRequest = URLRequest(url: URL.appendingPathComponent(path))
-        URLRequest.httpMethod = method.rawValue
+        urlRequest.httpMethod = method.rawValue
         
         switch  self {
             
         case .search(let parameters):
             return try JSONEncoding.default.encode(urlRequest, with: parameters)
         default:
-            urlRequest
+            return urlRequest
         }
     }
 }
