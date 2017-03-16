@@ -12,6 +12,7 @@ import Alamofire
 enum Router : URLRequestConvertible {
     static var baseURLString = "https://api.spotify.com/v1/"
     
+    static var token: String?
     static var params = [Any]()
     
     // Search
@@ -45,10 +46,14 @@ enum Router : URLRequestConvertible {
         var urlRequest = URLRequest(url: URL.appendingPathComponent(path))
         urlRequest.httpMethod = method.rawValue
         
+        if let token = Router.token {
+            urlRequest.setValue("\(token)", forHTTPHeaderField: "Authorization")
+        }
+        
         switch  self {
             
         case .search(let parameters):
-            return try JSONEncoding.default.encode(urlRequest, with: parameters)
+            return try URLEncoding.default.encode(urlRequest, with: parameters)
         default:
             return urlRequest
         }
