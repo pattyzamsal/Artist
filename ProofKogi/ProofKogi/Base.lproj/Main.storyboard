@@ -30,6 +30,7 @@
                                 </state>
                                 <connections>
                                     <action selector="searchAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="enC-qv-rPR"/>
+                                    <segue destination="jPX-2o-k8L" kind="show" id="q4g-DY-QDY"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6G3-v8-eMd" customClass="HoshiTextField" customModule="TextFieldEffects">
@@ -59,6 +60,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="ePs-IN-la6"/>
                     <connections>
                         <outlet property="artistField" destination="6G3-v8-eMd" id="Ftm-wD-XBQ"/>
                         <outlet property="searchBtn" destination="ufD-8J-xjd" id="Jxx-Lv-dGl"/>
@@ -67,6 +69,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="69.599999999999994" y="42.728635682158924"/>
+        </scene>
+        <!--Artist View-->
+        <scene sceneID="Lud-2e-uXo">
+            <objects>
+                <viewController id="jPX-2o-k8L" customClass="ArtistView" customModule="ProofKogi" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QZN-yJ-phh"/>
+                        <viewControllerLayoutGuide type="bottom" id="x3G-Qj-RLD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zYT-nZ-ug4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0S1-9w-HWk">
+                                <rect key="frame" x="104" y="46" width="166" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uL4-km-aLr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="872.79999999999995" y="42.728635682158924"/>
         </scene>
     </scenes>
 </document>

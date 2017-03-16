@@ -25,6 +25,8 @@
 		6171275935ED01C2A71EC5F1 /* Pods_ProofKogiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ADE8EB3EFDC6A0FDFD57877 /* Pods_ProofKogiTests.framework */; };
 		6B9948CFD807D39C113F105B /* Pods_ProofKogi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC1AEBE0185D32813A6C46A8 /* Pods_ProofKogi.framework */; };
 		72A345BA1E7B1CC500F645A0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 72A345BC1E7B1CC500F645A0 /* Localizable.strings */; };
+		72A345C31E7B2DCB00F645A0 /* GlobalVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A345C21E7B2DCB00F645A0 /* GlobalVars.swift */; };
+		72A345C51E7B33B100F645A0 /* ArtistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A345C41E7B33B100F645A0 /* ArtistView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		72A345BB1E7B1CC500F645A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		72A345BD1E7B1CCB00F645A0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		72A345BF1E7B271800F645A0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		72A345C21E7B2DCB00F645A0 /* GlobalVars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalVars.swift; sourceTree = "<group>"; };
+		72A345C41E7B33B100F645A0 /* ArtistView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistView.swift; sourceTree = "<group>"; };
 		AC1AEBE0185D32813A6C46A8 /* Pods_ProofKogi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProofKogi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C942846C908A1636717ADB70 /* Pods-ProofKogiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProofKogiTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProofKogiTests/Pods-ProofKogiTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E35A1A7A88B0A9ED69066D01 /* Pods_ProofKogiUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProofKogiUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,14 +142,15 @@
 		27188EF61E7A1E1C00642505 /* ProofKogi */ = {
 			isa = PBXGroup;
 			children = (
+				72A345C61E7B33CA00F645A0 /* Views */,
 				27188EF71E7A1E1C00642505 /* AppDelegate.swift */,
-				27188EF91E7A1E1C00642505 /* ViewController.swift */,
 				27188EFB1E7A1E1C00642505 /* Main.storyboard */,
 				27188EFE1E7A1E1C00642505 /* Assets.xcassets */,
 				27188F001E7A1E1C00642505 /* LaunchScreen.storyboard */,
 				27188F031E7A1E1C00642505 /* Info.plist */,
 				27188F2D1E7A395D00642505 /* API.swift */,
 				72A345BC1E7B1CC500F645A0 /* Localizable.strings */,
+				72A345C21E7B2DCB00F645A0 /* GlobalVars.swift */,
 			);
 			path = ProofKogi;
 			sourceTree = "<group>";
@@ -182,6 +187,15 @@
 				E35A1A7A88B0A9ED69066D01 /* Pods_ProofKogiUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		72A345C61E7B33CA00F645A0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				72A345C41E7B33B100F645A0 /* ArtistView.swift */,
+				27188EF91E7A1E1C00642505 /* ViewController.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		AFE297E2230E193F98BA48DD /* Pods */ = {
@@ -482,7 +496,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72A345C31E7B2DCB00F645A0 /* GlobalVars.swift in Sources */,
 				27188EFA1E7A1E1C00642505 /* ViewController.swift in Sources */,
+				72A345C51E7B33B100F645A0 /* ArtistView.swift in Sources */,
 				27188F2E1E7A395D00642505 /* API.swift in Sources */,
 				27188EF81E7A1E1C00642505 /* AppDelegate.swift in Sources */,
 			);
