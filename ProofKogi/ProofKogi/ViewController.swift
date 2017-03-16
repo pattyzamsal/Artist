@@ -35,12 +35,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func searchAction(_ sender: UIButton) {
         SVProgressHUD.show(withStatus: "Buscando")
         
-        var param = [String : Any]()
-        
-        param = [
-            "artists":artistField.text!,
-            "type":"artists",
-        ]
+        let param = [
+            "q": artistField.text!,
+            "type": "artist",
+            ] as [String : Any]
         
         print(param)
         
@@ -48,7 +46,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             .validate()
             .responseJSON { response in
                 
-                print(response)
+                print(response.debugDescription)
                 
                 if response.result.isSuccess{
                     
@@ -56,18 +54,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     
                 } else {
                     
-                    var errorMessage = ""
-                    if let data = response.data {
-                        // Print message
-                        let responseJSON = JSON(data: data)
-                        
-                        if !responseJSON["error"]["message"].stringValue.isEmpty {
-                            errorMessage += responseJSON["error"]["message"].stringValue
-                        }
-                        
-                    }
-                    
-                    SVProgressHUD.showError(withStatus: errorMessage)
+                    print(response.debugDescription)
+                    self.throwBasicAlert("Error", message: NSLocalizedString("Error buscando al artista", comment: ""), actions: [
+                        ("Ok", { action in })
+                        ])
                     
                 }
         }
@@ -79,6 +69,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
             textField.resignFirstResponder()
         }
         return true
+    }
+    
+    func throwBasicAlert(_ title: String, message: String, actions: [(String, (UIAlertAction?) -> Void)]) {
+        let alertController = UIAlertController(title: title, message: message as String, preferredStyle: .alert)
+        for (actionTitle, actionHandler) in actions {
+            alertController.addAction(UIAlertAction(title: actionTitle, style: .default, handler: actionHandler))
+        }
+        //Present the AlertController
+        self.present(alertController, animated: true, completion: nil)
     }
     
     func handleSingleTap(_ recognizer: UITapGestureRecognizer){
