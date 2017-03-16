@@ -2,6 +2,8 @@
 //  ViewController.swift
 //  ProofKogi
 //
+//  Controller of the view that search to an specific artist
+//
 //  Created by Patricia Zambrano on 3/15/17.
 //  Copyright © 2017 Patricia Zambrano. All rights reserved.
 //
@@ -13,15 +15,23 @@ import SVProgressHUD
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
+    @IBOutlet weak var artistField: UITextField!
+    @IBOutlet weak var searchBtn: UIButton!
+    
+    var listInfo = [JSON]()
+    
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
     }
     
-    @IBOutlet weak var artistField: UITextField!
-    @IBOutlet weak var searchBtn: UIButton!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let langID = Locale.preferredLanguages[0]
+        let lang = (Locale.current as NSLocale).displayName(forKey: NSLocale.Key.languageCode, value: langID)
+        
+        initText()
+        
         // Do any additional setup after loading the view, typically from a nib.
         let singleFingerTap = UITapGestureRecognizer(target: self, action: #selector(ViewController.handleSingleTap(_:)))
         self.view.addGestureRecognizer(singleFingerTap)
@@ -32,34 +42,43 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    /*
+     *  description: Action to display when is pressed the search button
+     */
     @IBAction func searchAction(_ sender: UIButton) {
-        SVProgressHUD.show(withStatus: "Buscando")
         
-        let param = [
-            "q": artistField.text!,
-            "type": "artist",
-            ] as [String : Any]
+        SVProgressHUD.show(withStatus: NSLocalizedString("Searching", comment: ""))
         
-        print(param)
-        
-        Alamofire.request(Router.search(param as [String : AnyObject]))
-            .validate()
-            .responseJSON { response in
-                
-                print(response.debugDescription)
-                
-                if response.result.isSuccess{
+        if artistField.text! == ""{
+            SVProgressHUD.showError(withStatus: NSLocalizedString("Field empty. Try again", comment: ""))
+        }
+        else{
+            let param = [
+                "q": artistField.text!,
+                "type": "artist",
+                ] as [String : Any]
+            
+            Alamofire.request(Router.search(param as [String : AnyObject]))
+                .validate()
+                .responseJSON { response in
                     
-                    print("success")
-                    
-                } else {
-                    
-                    print(response.debugDescription)
-                    self.throwBasicAlert("Error", message: NSLocalizedString("Error buscando al artista", comment: ""), actions: [
-                        ("Ok", { action in })
-                        ])
-                    
-                }
+                    if response.result.isSuccess{
+                        
+                        let info = (JSON(response.result.value!))["artists"]["items"].arrayValue
+                        
+                        self.listInfo = info
+                        
+                        print(info)
+                        
+                        SomeManager.sharedInstance.nameArtist = self.listInfo[0]["name"].stringValue
+                        
+                        SVProgressHUD.showSuccess(withStatus: NSLocalizedString("Successfull search", comment: ""))
+                        
+                    } else {
+                        print(response.debugDescription)
+                        SVProgressHUD.showError(withStatus: NSLocalizedString("Error while trying to search the artist", comment: ""))
+                    }
+            }
         }
         
     }
@@ -71,13 +90,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-    func throwBasicAlert(_ title: String, message: String, actions: [(String, (UIAlertAction?) -> Void)]) {
-        let alertController = UIAlertController(title: title, message: message as String, preferredStyle: .alert)
-        for (actionTitle, actionHandler) in actions {
-            alertController.addAction(UIAlertAction(title: actionTitle, style: .default, handler: actionHandler))
-        }
-        //Present the AlertController
-        self.present(alertController, animated: true, completion: nil)
+    /*
+     *  description: Initialize texts of the view
+     */
+    func initText() {
+        artistField.placeholder = NSLocalizedString("Artist", comment: "")
+        searchBtn.setTitle(NSLocalizedString("Search", comment: ""), for: UIControlState())
     }
     
     func handleSingleTap(_ recognizer: UITapGestureRecognizer){
