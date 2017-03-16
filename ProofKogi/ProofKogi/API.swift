@@ -2,6 +2,8 @@
 //  API.swift
 //  ProofKogi
 //
+//  This script realize the connection to the endpoints
+//
 //  Created by Patricia Zambrano on 3/15/17.
 //  Copyright © 2017 Patricia Zambrano. All rights reserved.
 //
@@ -39,6 +41,9 @@ enum Router : URLRequestConvertible {
         }
     }
     
+    /*
+     *  description: function that realize the encoding of the url
+     */
     func asURLRequest() throws -> URLRequest {
         
         let URL = try Router.baseURLString.asURL()
