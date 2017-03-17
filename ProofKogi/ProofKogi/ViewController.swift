@@ -47,6 +47,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
      */
     @IBAction func searchAction(_ sender: UIButton) {
         
+        self.view.endEditing(true)
+
         SVProgressHUD.show(withStatus: NSLocalizedString("Searching", comment: ""))
         
         if artistField.text! == ""{
@@ -84,11 +86,25 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    //****************
+    //
+    //  TextField delegate
+    //
+    //***************
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == artistField {
             textField.resignFirstResponder()
         }
         return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+            self.view.endEditing(true)
+    }
+    
+    func handleSingleTap(_ recognizer: UITapGestureRecognizer){
+        self.view.endEditing(true)
     }
     
     /*
@@ -97,10 +113,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     func initText() {
         artistField.placeholder = NSLocalizedString("Artist", comment: "")
         searchBtn.setTitle(NSLocalizedString("Search", comment: ""), for: UIControlState())
-    }
-    
-    func handleSingleTap(_ recognizer: UITapGestureRecognizer){
-        self.view.endEditing(true)
     }
     
 }
