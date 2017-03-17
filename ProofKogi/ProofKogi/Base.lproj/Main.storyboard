@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="OBL-hR-f8L">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -29,8 +29,8 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="SearchGoBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FFk-Nf-TQh"/>
                                     <action selector="searchAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="enC-qv-rPR"/>
-                                    <segue destination="jPX-2o-k8L" kind="show" id="q4g-DY-QDY"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6G3-v8-eMd" customClass="HoshiTextField" customModule="TextFieldEffects">
@@ -62,18 +62,18 @@
                     </view>
                     <navigationItem key="navigationItem" id="ePs-IN-la6"/>
                     <connections>
-                        <outlet property="artistField" destination="6G3-v8-eMd" id="Ftm-wD-XBQ"/>
-                        <outlet property="searchBtn" destination="ufD-8J-xjd" id="Jxx-Lv-dGl"/>
+                        <outlet property="artistField" destination="6G3-v8-eMd" id="BDD-Nk-wSV"/>
+                        <outlet property="searchBtn" destination="ufD-8J-xjd" id="clD-R6-KXa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="69.599999999999994" y="42.728635682158924"/>
+            <point key="canvasLocation" x="1008.8" y="42.728635682158924"/>
         </scene>
         <!--Artist View-->
         <scene sceneID="Lud-2e-uXo">
             <objects>
-                <viewController id="jPX-2o-k8L" customClass="ArtistView" customModule="ProofKogi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ArtistView" id="jPX-2o-k8L" customClass="ArtistView" customModule="ProofKogi" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QZN-yJ-phh"/>
                         <viewControllerLayoutGuide type="bottom" id="x3G-Qj-RLD"/>
@@ -83,7 +83,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nxr-Ip-mGn">
-                                <rect key="frame" x="98" y="56" width="183" height="54"/>
+                                <rect key="frame" x="96" y="55" width="183" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.2196078431372549" green="0.39215686274509803" blue="0.99607843137254903" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -95,12 +95,30 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="artistBtn" destination="nxr-Ip-mGn" id="zRN-Xa-xQa"/>
+                        <outlet property="artistLabel" destination="nxr-Ip-mGn" id="BGb-z9-YUd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uL4-km-aLr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="872.79999999999995" y="42.728635682158924"/>
+            <point key="canvasLocation" x="1812" y="42.728635682158924"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="D6c-qg-gvd">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OBL-hR-f8L" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Unl-bR-iXR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="8Lr-u1-yTd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5p-zh-C4g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="69.599999999999994" y="42.728635682158924"/>
         </scene>
     </scenes>
 </document>

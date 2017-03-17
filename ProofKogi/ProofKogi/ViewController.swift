@@ -35,6 +35,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view, typically from a nib.
         let singleFingerTap = UITapGestureRecognizer(target: self, action: #selector(ViewController.handleSingleTap(_:)))
         self.view.addGestureRecognizer(singleFingerTap)
+        
+        searchBtn.addTarget(self, action: #selector(ViewController.searchAction(_:)), for: .touchUpInside)
     }
     
     override func didReceiveMemoryWarning() {
@@ -75,6 +77,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                         SomeManager.sharedInstance.nameArtist = self.listInfo[0]["name"].stringValue
                         SomeManager.sharedInstance.listImage = self.listInfo[0]["images"].arrayValue
                         
+                        
                         SVProgressHUD.showSuccess(withStatus: NSLocalizedString("Successfull search", comment: ""))
                         
                     } else {
@@ -84,6 +87,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
             }
         }
         
+    }
+    
+    @IBAction func SearchGoBtn(_ sender: Any) {
+        let myVC = storyboard?.instantiateViewController(withIdentifier: "ArtistView") as! ArtistView
+        myVC.nameArtist = SomeManager.sharedInstance.nameArtist
+        navigationController?.pushViewController(myVC, animated: true)
     }
     
     //****************
