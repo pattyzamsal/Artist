@@ -71,6 +71,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                         print(info)
                         
                         SomeManager.sharedInstance.nameArtist = self.listInfo[0]["name"].stringValue
+                        SomeManager.sharedInstance.listImage = self.listInfo[0]["images"].arrayValue
                         
                         SVProgressHUD.showSuccess(withStatus: NSLocalizedString("Successfull search", comment: ""))
                         

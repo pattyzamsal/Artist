@@ -7,10 +7,12 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 class SomeManager {
     
     var nameArtist = ""
+    var listImage = [JSON]()
     
     static let sharedInstance = SomeManager()
 
