@@ -16,6 +16,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let defaults = UserDefaults.standard
+        
+        //Check if app is opening for the first time
+        // if so, open walkthrough
+        if (defaults.string(forKey: "isAppAlreadyLaunchedOnce") != nil){
+            print("App already launched")
+        } else {
+            print("App launched first time")
+            
+            defaults.set(true, forKey: "isAppAlreadyLaunchedOnce")
+        }
+
+        
         return true
     }
 
