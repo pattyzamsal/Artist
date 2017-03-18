@@ -19,6 +19,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var searchBtn: UIButton!
     
     var listInfo = [JSON]()
+    var listImage = [JSON]()
+    var urlArray = [String]()
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
@@ -76,7 +78,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
                             print(info)
                             
                             SomeManager.sharedInstance.nameArtist = self.listInfo[0]["name"].stringValue
-                            SomeManager.sharedInstance.listImage = self.listInfo[0]["images"].arrayValue
+                            self.listImage = self.listInfo[0]["images"].arrayValue
+                            
+                            var j = 0
+                            for i in 0..<self.listImage.count{
+                                self.urlArray.insert(self.listImage[i]["url"].debugDescription, at: j)
+                                j += 1
+                            }
+                            
+                            print(self.urlArray.debugDescription)
+                            SomeManager.sharedInstance.listURLImages = self.urlArray
                             
                             SVProgressHUD.showSuccess(withStatus: NSLocalizedString("Successfull search", comment: ""))
                             
@@ -130,6 +141,5 @@ class ViewController: UIViewController, UITextFieldDelegate {
         artistField.placeholder = NSLocalizedString("Artist", comment: "")
         searchBtn.setTitle(NSLocalizedString("Search", comment: ""), for: UIControlState())
     }
-    
 }
 

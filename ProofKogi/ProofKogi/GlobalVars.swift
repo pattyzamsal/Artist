@@ -13,7 +13,7 @@ import UIKit
 class SomeManager {
     
     var nameArtist = ""
-    var listImage = [JSON]()
+    var listURLImages = [String]()
     
     static let sharedInstance = SomeManager()
 
