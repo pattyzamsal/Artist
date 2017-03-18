@@ -82,7 +82,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                             
                             print(info)
                             
-                            SomeManager.sharedInstance.nameArtist = c
+                            SomeManager.sharedInstance.nameArtist = self.listInfo[0]["name"].stringValue
                             self.listImage = self.listInfo[0]["images"].arrayValue
                             
                             var j = 0
