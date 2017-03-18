@@ -43,7 +43,6 @@ class ArtistView: UIViewController, UICollectionViewDelegateFlowLayout, UICollec
         print("viewDidAppear artist view")
         print(SomeManager.sharedInstance.listImages.count)
         self.ImageCollectionView.reloadData()
-        //self.ImageCollectionView.reloadData()
     }
     
     func goBack(){
@@ -78,7 +77,7 @@ class ArtistView: UIViewController, UICollectionViewDelegateFlowLayout, UICollec
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell",
                                                       for: indexPath) as! ImageCell
         cell.backgroundColor = UIColor.black
-        //cell.imageCell.image = SomeManager.sharedInstance.listImages[indexPath.row]
+        cell.imageCell.image = SomeManager.sharedInstance.listImages[0]
         
         // Configure the cell
         return cell
