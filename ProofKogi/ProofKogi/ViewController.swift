@@ -94,6 +94,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
                             print(self.urlArray.debugDescription)
                             SomeManager.sharedInstance.listURLImages = self.urlArray
                             
+                            SomeManager.sharedInstance.popularity = self.listInfo[0]["popularity"].int!
+                            SomeManager.sharedInstance.followers = self.listInfo[0]["followers"]["total"].int!
+                            
                             j = 0
                             for i in 0..<SomeManager.sharedInstance.listURLImages.count{
                                 Alamofire.request(SomeManager.sharedInstance.listURLImages[i], method: .get)

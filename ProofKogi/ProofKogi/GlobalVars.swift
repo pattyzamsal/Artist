@@ -15,6 +15,8 @@ class SomeManager {
     var nameArtist = ""
     var listURLImages = [String]()
     var listImages = [UIImage]()
+    var popularity = 0
+    var followers = 0
     
     static let sharedInstance = SomeManager()
 
