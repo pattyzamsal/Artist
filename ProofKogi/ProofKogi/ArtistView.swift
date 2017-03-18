@@ -40,8 +40,6 @@ class ArtistView: UIViewController, UICollectionViewDelegateFlowLayout, UICollec
     
     override func viewDidAppear(_ animated: Bool) {
         artistLabel.setTitle(SomeManager.sharedInstance.nameArtist, for: UIControlState())
-        print("viewDidAppear artist view")
-        print(SomeManager.sharedInstance.listImages.count)
         self.ImageCollectionView.reloadData()
     }
     
@@ -77,8 +75,9 @@ class ArtistView: UIViewController, UICollectionViewDelegateFlowLayout, UICollec
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell",
                                                       for: indexPath) as! ImageCell
         cell.backgroundColor = UIColor.black
+
         cell.imageCell.image = SomeManager.sharedInstance.listImages[0]
-        
+
         // Configure the cell
         return cell
     }
