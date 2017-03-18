@@ -22,6 +22,7 @@
 		27188F3F1E7A482E00642505 /* Pods_ProofKogiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27188F3C1E7A482E00642505 /* Pods_ProofKogiUITests.framework */; };
 		27188F401E7A482E00642505 /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27188F3D1E7A482E00642505 /* SVProgressHUD.framework */; };
 		274A47521E7D9C9D0085BDE0 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A47511E7D9C9D0085BDE0 /* ImageCell.swift */; };
+		27D41AB31E7DC30A00172C35 /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27D41AB21E7DC30A00172C35 /* AlamofireImage.framework */; };
 		29B5B6E9F69A336BAF1553E3 /* Pods_ProofKogiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E35A1A7A88B0A9ED69066D01 /* Pods_ProofKogiUITests.framework */; };
 		6171275935ED01C2A71EC5F1 /* Pods_ProofKogiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ADE8EB3EFDC6A0FDFD57877 /* Pods_ProofKogiTests.framework */; };
 		6B9948CFD807D39C113F105B /* Pods_ProofKogi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC1AEBE0185D32813A6C46A8 /* Pods_ProofKogi.framework */; };
@@ -71,6 +72,7 @@
 		27188F3C1E7A482E00642505 /* Pods_ProofKogiUITests.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_ProofKogiUITests.framework; path = "Pods/../build/Debug-iphoneos/Pods_ProofKogiUITests.framework"; sourceTree = "<group>"; };
 		27188F3D1E7A482E00642505 /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVProgressHUD.framework; path = "Pods/../build/Debug-iphoneos/SVProgressHUD/SVProgressHUD.framework"; sourceTree = "<group>"; };
 		274A47511E7D9C9D0085BDE0 /* ImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		27D41AB21E7DC30A00172C35 /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = "../../../Library/Developer/Xcode/DerivedData/ProofKogi-gbfkjhbvvssfudhhfbhkihheztvv/Build/Products/Debug-iphonesimulator/AlamofireImage/AlamofireImage.framework"; sourceTree = "<group>"; };
 		2DA616EE5942012747B76B13 /* Pods-ProofKogiUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProofKogiUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ProofKogiUITests/Pods-ProofKogiUITests.release.xcconfig"; sourceTree = "<group>"; };
 		38F4EC63AFBAB1CA1BBE2622 /* Pods-ProofKogi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProofKogi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProofKogi/Pods-ProofKogi.debug.xcconfig"; sourceTree = "<group>"; };
 		4ADE8EB3EFDC6A0FDFD57877 /* Pods_ProofKogiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProofKogiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27D41AB31E7DC30A00172C35 /* AlamofireImage.framework in Frameworks */,
 				27188F3E1E7A482E00642505 /* Pods_ProofKogiTests.framework in Frameworks */,
 				27188F3F1E7A482E00642505 /* Pods_ProofKogiUITests.framework in Frameworks */,
 				27188F401E7A482E00642505 /* SVProgressHUD.framework in Frameworks */,
@@ -178,6 +181,7 @@
 		3815AAA8468E214159422154 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				27D41AB21E7DC30A00172C35 /* AlamofireImage.framework */,
 				27188F3B1E7A482E00642505 /* Pods_ProofKogiTests.framework */,
 				27188F3C1E7A482E00642505 /* Pods_ProofKogiUITests.framework */,
 				27188F3D1E7A482E00642505 /* SVProgressHUD.framework */,
