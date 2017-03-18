@@ -63,6 +63,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
         else {
             if artistField.text!.capitalized != SomeManager.sharedInstance.nameArtist.capitalized {
+                SomeManager.init()
+                listInfo = [JSON]()
+                listImage = [JSON]()
+                urlArray = [String]()
+                
+                images = [UIImage]()
+                
                 let param = [
                     "q": artistField.text!,
                     "type": "artist",
