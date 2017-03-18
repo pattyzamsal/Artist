@@ -14,9 +14,19 @@
 		27188F021E7A1E1C00642505 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27188F001E7A1E1C00642505 /* LaunchScreen.storyboard */; };
 		27188F0D1E7A1E1C00642505 /* ProofKogiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27188F0C1E7A1E1C00642505 /* ProofKogiTests.swift */; };
 		27188F181E7A1E1C00642505 /* ProofKogiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27188F171E7A1E1C00642505 /* ProofKogiUITests.swift */; };
+		27188F2E1E7A395D00642505 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27188F2D1E7A395D00642505 /* API.swift */; };
+		27188F361E7A45F600642505 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27188F351E7A45F600642505 /* Alamofire.framework */; };
+		27188F381E7A460500642505 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27188F371E7A460500642505 /* SwiftyJSON.framework */; };
+		27188F3A1E7A460B00642505 /* TextFieldEffects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27188F391E7A460B00642505 /* TextFieldEffects.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		27188F3E1E7A482E00642505 /* Pods_ProofKogiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27188F3B1E7A482E00642505 /* Pods_ProofKogiTests.framework */; };
+		27188F3F1E7A482E00642505 /* Pods_ProofKogiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27188F3C1E7A482E00642505 /* Pods_ProofKogiUITests.framework */; };
+		27188F401E7A482E00642505 /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27188F3D1E7A482E00642505 /* SVProgressHUD.framework */; };
 		29B5B6E9F69A336BAF1553E3 /* Pods_ProofKogiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E35A1A7A88B0A9ED69066D01 /* Pods_ProofKogiUITests.framework */; };
 		6171275935ED01C2A71EC5F1 /* Pods_ProofKogiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ADE8EB3EFDC6A0FDFD57877 /* Pods_ProofKogiTests.framework */; };
 		6B9948CFD807D39C113F105B /* Pods_ProofKogi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC1AEBE0185D32813A6C46A8 /* Pods_ProofKogi.framework */; };
+		728D50221E7C683F00E6DB9D /* ArtistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728D50211E7C683F00E6DB9D /* ArtistView.swift */; };
+		72A345BA1E7B1CC500F645A0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 72A345BC1E7B1CC500F645A0 /* Localizable.strings */; };
+		72A345C31E7B2DCB00F645A0 /* GlobalVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A345C21E7B2DCB00F645A0 /* GlobalVars.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,9 +62,21 @@
 		27188F131E7A1E1C00642505 /* ProofKogiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProofKogiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		27188F171E7A1E1C00642505 /* ProofKogiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProofKogiUITests.swift; sourceTree = "<group>"; };
 		27188F191E7A1E1C00642505 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		27188F2D1E7A395D00642505 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		27188F351E7A45F600642505 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
+		27188F371E7A460500642505 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "Pods/../build/Debug-iphoneos/SwiftyJSON/SwiftyJSON.framework"; sourceTree = "<group>"; };
+		27188F391E7A460B00642505 /* TextFieldEffects.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TextFieldEffects.framework; path = "Pods/../build/Debug-iphoneos/TextFieldEffects/TextFieldEffects.framework"; sourceTree = "<group>"; };
+		27188F3B1E7A482E00642505 /* Pods_ProofKogiTests.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_ProofKogiTests.framework; path = "Pods/../build/Debug-iphoneos/Pods_ProofKogiTests.framework"; sourceTree = "<group>"; };
+		27188F3C1E7A482E00642505 /* Pods_ProofKogiUITests.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_ProofKogiUITests.framework; path = "Pods/../build/Debug-iphoneos/Pods_ProofKogiUITests.framework"; sourceTree = "<group>"; };
+		27188F3D1E7A482E00642505 /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVProgressHUD.framework; path = "Pods/../build/Debug-iphoneos/SVProgressHUD/SVProgressHUD.framework"; sourceTree = "<group>"; };
 		2DA616EE5942012747B76B13 /* Pods-ProofKogiUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProofKogiUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ProofKogiUITests/Pods-ProofKogiUITests.release.xcconfig"; sourceTree = "<group>"; };
 		38F4EC63AFBAB1CA1BBE2622 /* Pods-ProofKogi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProofKogi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProofKogi/Pods-ProofKogi.debug.xcconfig"; sourceTree = "<group>"; };
 		4ADE8EB3EFDC6A0FDFD57877 /* Pods_ProofKogiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProofKogiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		728D50211E7C683F00E6DB9D /* ArtistView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistView.swift; sourceTree = "<group>"; };
+		72A345BB1E7B1CC500F645A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		72A345BD1E7B1CCB00F645A0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		72A345BF1E7B271800F645A0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		72A345C21E7B2DCB00F645A0 /* GlobalVars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalVars.swift; sourceTree = "<group>"; };
 		AC1AEBE0185D32813A6C46A8 /* Pods_ProofKogi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProofKogi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C942846C908A1636717ADB70 /* Pods-ProofKogiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProofKogiTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProofKogiTests/Pods-ProofKogiTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E35A1A7A88B0A9ED69066D01 /* Pods_ProofKogiUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProofKogiUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +88,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27188F3E1E7A482E00642505 /* Pods_ProofKogiTests.framework in Frameworks */,
+				27188F3F1E7A482E00642505 /* Pods_ProofKogiUITests.framework in Frameworks */,
+				27188F401E7A482E00642505 /* SVProgressHUD.framework in Frameworks */,
+				27188F3A1E7A460B00642505 /* TextFieldEffects.framework in Frameworks */,
+				27188F381E7A460500642505 /* SwiftyJSON.framework in Frameworks */,
+				27188F361E7A45F600642505 /* Alamofire.framework in Frameworks */,
 				6B9948CFD807D39C113F105B /* Pods_ProofKogi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -114,12 +142,15 @@
 		27188EF61E7A1E1C00642505 /* ProofKogi */ = {
 			isa = PBXGroup;
 			children = (
+				72A345C61E7B33CA00F645A0 /* Views */,
 				27188EF71E7A1E1C00642505 /* AppDelegate.swift */,
-				27188EF91E7A1E1C00642505 /* ViewController.swift */,
 				27188EFB1E7A1E1C00642505 /* Main.storyboard */,
 				27188EFE1E7A1E1C00642505 /* Assets.xcassets */,
 				27188F001E7A1E1C00642505 /* LaunchScreen.storyboard */,
 				27188F031E7A1E1C00642505 /* Info.plist */,
+				27188F2D1E7A395D00642505 /* API.swift */,
+				72A345BC1E7B1CC500F645A0 /* Localizable.strings */,
+				72A345C21E7B2DCB00F645A0 /* GlobalVars.swift */,
 			);
 			path = ProofKogi;
 			sourceTree = "<group>";
@@ -145,11 +176,26 @@
 		3815AAA8468E214159422154 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				27188F3B1E7A482E00642505 /* Pods_ProofKogiTests.framework */,
+				27188F3C1E7A482E00642505 /* Pods_ProofKogiUITests.framework */,
+				27188F3D1E7A482E00642505 /* SVProgressHUD.framework */,
+				27188F391E7A460B00642505 /* TextFieldEffects.framework */,
+				27188F371E7A460500642505 /* SwiftyJSON.framework */,
+				27188F351E7A45F600642505 /* Alamofire.framework */,
 				AC1AEBE0185D32813A6C46A8 /* Pods_ProofKogi.framework */,
 				4ADE8EB3EFDC6A0FDFD57877 /* Pods_ProofKogiTests.framework */,
 				E35A1A7A88B0A9ED69066D01 /* Pods_ProofKogiUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		72A345C61E7B33CA00F645A0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				728D50211E7C683F00E6DB9D /* ArtistView.swift */,
+				27188EF91E7A1E1C00642505 /* ViewController.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		AFE297E2230E193F98BA48DD /* Pods */ = {
@@ -285,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				27188F021E7A1E1C00642505 /* LaunchScreen.storyboard in Resources */,
+				72A345BA1E7B1CC500F645A0 /* Localizable.strings in Resources */,
 				27188EFF1E7A1E1C00642505 /* Assets.xcassets in Resources */,
 				27188EFD1E7A1E1C00642505 /* Main.storyboard in Resources */,
 			);
@@ -449,8 +496,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72A345C31E7B2DCB00F645A0 /* GlobalVars.swift in Sources */,
 				27188EFA1E7A1E1C00642505 /* ViewController.swift in Sources */,
+				27188F2E1E7A395D00642505 /* API.swift in Sources */,
 				27188EF81E7A1E1C00642505 /* AppDelegate.swift in Sources */,
+				728D50221E7C683F00E6DB9D /* ArtistView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,6 +540,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				27188EFC1E7A1E1C00642505 /* Base */,
+				72A345BF1E7B271800F645A0 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -500,6 +551,16 @@
 				27188F011E7A1E1C00642505 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		72A345BC1E7B1CC500F645A0 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				72A345BB1E7B1CC500F645A0 /* Base */,
+				72A345BD1E7B1CCB00F645A0 /* en */,
+			);
+			name = Localizable.strings;
+			path = Translations;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -604,6 +665,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = N9FSLA7YU6;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/Alamofire",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/SwiftyJSON",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/TextFieldEffects",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/SVProgressHUD",
+				);
 				INFOPLIST_FILE = ProofKogi/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -619,6 +688,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = N9FSLA7YU6;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/Alamofire",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/SwiftyJSON",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/TextFieldEffects",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/SVProgressHUD",
+				);
 				INFOPLIST_FILE = ProofKogi/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
