@@ -98,11 +98,20 @@ class ViewController: UIViewController, UITextFieldDelegate {
                                     .responseImage { response in
                                         if response.result.isSuccess{
                                             print("success")
-                                            self.images.insert((response.result.value?.af_imageAspectScaled(toFill: CGSize(width: 95.0, height: 95.0)))!, at: j)
+                                            self.images.insert((response.result.value?.af_imageAspectScaled(toFill: CGSize(width: 90.0, height: 90.0)))!, at: j)
                                             j += 1
+                                            if i == SomeManager.sharedInstance.listURLImages.count - 1{
+                                                print("ultima")
+                                                SomeManager.sharedInstance.listImages = self.images
+                                                print("viewcontroller")
+                                                print(SomeManager.sharedInstance.listImages.count)
+                                            }
                                         }
                                 }
                             }
+                            
+                            print("viewcontroller")
+                            print(SomeManager.sharedInstance.listImages.count)
                             
                             SVProgressHUD.showSuccess(withStatus: NSLocalizedString("Successfull search", comment: ""))
                             
