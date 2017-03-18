@@ -56,43 +56,50 @@ class ViewController: UIViewController, UITextFieldDelegate {
         if artistField.text! == ""{
             SVProgressHUD.showError(withStatus: NSLocalizedString("Field empty. Try again", comment: ""))
         }
-        else{
-            let param = [
-                "q": artistField.text!,
-                "type": "artist",
-                ] as [String : Any]
-            
-            Alamofire.request(Router.search(param as [String : AnyObject]))
-                .validate()
-                .responseJSON { response in
-                    
-                    if response.result.isSuccess{
+        else {
+            if artistField.text!.capitalized != SomeManager.sharedInstance.nameArtist.capitalized {
+                let param = [
+                    "q": artistField.text!,
+                    "type": "artist",
+                    ] as [String : Any]
+                
+                Alamofire.request(Router.search(param as [String : AnyObject]))
+                    .validate()
+                    .responseJSON { response in
                         
-                        let info = (JSON(response.result.value!))["artists"]["items"].arrayValue
-                        
-                        self.listInfo = info
-                        
-                        print(info)
-                        
-                        SomeManager.sharedInstance.nameArtist = self.listInfo[0]["name"].stringValue
-                        SomeManager.sharedInstance.listImage = self.listInfo[0]["images"].arrayValue
-                        
-                        
-                        SVProgressHUD.showSuccess(withStatus: NSLocalizedString("Successfull search", comment: ""))
-                        
-                    } else {
-                        print(response.debugDescription)
-                        SVProgressHUD.showError(withStatus: NSLocalizedString("Error while trying to search the artist", comment: ""))
-                    }
+                        if response.result.isSuccess{
+                            
+                            let info = (JSON(response.result.value!))["artists"]["items"].arrayValue
+                            
+                            self.listInfo = info
+                            
+                            print(info)
+                            
+                            SomeManager.sharedInstance.nameArtist = self.listInfo[0]["name"].stringValue
+                            SomeManager.sharedInstance.listImage = self.listInfo[0]["images"].arrayValue
+                            
+                            SVProgressHUD.showSuccess(withStatus: NSLocalizedString("Successfull search", comment: ""))
+                            
+                        } else {
+                            print(response.debugDescription)
+                            SVProgressHUD.showError(withStatus: NSLocalizedString("Error while trying to search the artist", comment: ""))
+                        }
+                }
+            }
+            else {
+                SVProgressHUD.showSuccess(withStatus: NSLocalizedString("Successfull search", comment: ""))
             }
         }
         
     }
     
     @IBAction func SearchGoBtn(_ sender: Any) {
-        let myVC = storyboard?.instantiateViewController(withIdentifier: "ArtistView") as! ArtistView
-        myVC.nameArtist = SomeManager.sharedInstance.nameArtist
-        navigationController?.pushViewController(myVC, animated: true)
+        if !(artistField.text! == ""){
+            let myVC = storyboard?.instantiateViewController(withIdentifier: "ArtistView") as! ArtistView
+            myVC.nameArtist = SomeManager.sharedInstance.nameArtist
+            navigationController?.pushViewController(myVC, animated: true)
+        }
+        
     }
     
     //****************
