@@ -12,6 +12,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import SVProgressHUD
+import AlamofireImage
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
@@ -21,6 +22,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var listInfo = [JSON]()
     var listImage = [JSON]()
     var urlArray = [String]()
+    
+    var images = [UIImage]()
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
@@ -89,6 +92,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
                             print(self.urlArray.debugDescription)
                             SomeManager.sharedInstance.listURLImages = self.urlArray
                             
+                            j = 0
+                            for i in 0..<SomeManager.sharedInstance.listURLImages.count{
+                                Alamofire.request(SomeManager.sharedInstance.listURLImages[i], method: .get)
+                                    .responseImage { response in
+                                        if response.result.isSuccess{
+                                            print("success")
+                                            self.images.insert((response.result.value?.af_imageAspectScaled(toFill: CGSize(width: 95.0, height: 95.0)))!, at: j)
+                                            j += 1
+                                        }
+                                }
+                            }
+                            
                             SVProgressHUD.showSuccess(withStatus: NSLocalizedString("Successfull search", comment: ""))
                             
                         } else {
@@ -133,7 +148,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     func handleSingleTap(_ recognizer: UITapGestureRecognizer){
         self.view.endEditing(true)
     }
-    
+        
     /*
      *  description: Initialize texts of the view
      */
