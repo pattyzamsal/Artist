@@ -22,7 +22,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var listInfo = [JSON]()
     var listImage = [JSON]()
     var urlArray = [String]()
-    
     var images = [UIImage]()
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,13 +62,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
         else {
             if artistField.text!.capitalized != SomeManager.sharedInstance.nameArtist.capitalized {
-                SomeManager.init()
-                listInfo = [JSON]()
-                listImage = [JSON]()
-                urlArray = [String]()
                 
-                images = [UIImage]()
-                
+                self.initStructs()
+
                 let param = [
                     "q": artistField.text!,
                     "type": "artist",
@@ -104,21 +99,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
                                 Alamofire.request(SomeManager.sharedInstance.listURLImages[i], method: .get)
                                     .responseImage { response in
                                         if response.result.isSuccess{
-                                            print("success")
+                                            
                                             self.images.insert((response.result.value?.af_imageAspectScaled(toFill: CGSize(width: 90.0, height: 90.0)))!, at: j)
                                             j += 1
                                             if i == SomeManager.sharedInstance.listURLImages.count - 1{
-                                                print("ultima")
                                                 SomeManager.sharedInstance.listImages = self.images
-                                                print("viewcontroller")
-                                                print(SomeManager.sharedInstance.listImages.count)
+
                                             }
                                         }
                                 }
                             }
-                            
-                            print("viewcontroller")
-                            print(SomeManager.sharedInstance.listImages.count)
                             
                             SVProgressHUD.showSuccess(withStatus: NSLocalizedString("Successfull search", comment: ""))
                             
@@ -171,6 +161,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
     func initText() {
         artistField.placeholder = NSLocalizedString("Artist", comment: "")
         searchBtn.setTitle(NSLocalizedString("Search", comment: ""), for: UIControlState())
+    }
+    
+    /*
+     *  description: Clean data in the structs
+     */
+    func initStructs() {
+        SomeManager.init()
+        listInfo = [JSON]()
+        listImage = [JSON]()
+        urlArray = [String]()
+        images = [UIImage]()
     }
 }
 
