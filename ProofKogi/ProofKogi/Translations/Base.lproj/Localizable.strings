@@ -11,7 +11,10 @@
 "Error while trying to search the artist" = "Error buscando al artista";
 "Successfull search" = "Búsqueda exitosa";
 "Field empty. Try again" = "Campo vacío. Intente de nuevo";
+"Press to the artist's name for more information" = "Presiona el nombre del artista para más información";
 
 // Others
 "Artist" = "Artista";
 "Search" = "Buscar";
+
+// Artist view
