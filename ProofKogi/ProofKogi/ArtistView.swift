@@ -30,7 +30,6 @@ class ArtistView: UIViewController, UICollectionViewDelegateFlowLayout, UICollec
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,10 +39,11 @@ class ArtistView: UIViewController, UICollectionViewDelegateFlowLayout, UICollec
     
     override func viewDidAppear(_ animated: Bool) {
         self.throwBasicAlert("", message: NSLocalizedString("Press to the artist's name for more.", comment: ""), actions: [
-            ("Ok", { action in })
+                ("Ok", { action in
+                    self.artistLabel.setTitle(SomeManager.sharedInstance.nameArtist, for: UIControlState())
+                    self.ImageCollectionView.reloadData()
+                })
             ])
-        artistLabel.setTitle(SomeManager.sharedInstance.nameArtist, for: UIControlState())
-        self.ImageCollectionView.reloadData()
     }
     
     func goBack(){
