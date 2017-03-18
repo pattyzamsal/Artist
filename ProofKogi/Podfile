@@ -6,6 +6,7 @@ use_frameworks!
 
 def shared_pods
     pod 'Alamofire', '~> 4.0'
+    pod 'AlamofireImage', '~> 3.1'
     pod 'SwiftyJSON', :git => 'https://github.com/acegreen/SwiftyJSON.git', :branch => 'swift3'
     pod 'SVProgressHUD'
     pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'

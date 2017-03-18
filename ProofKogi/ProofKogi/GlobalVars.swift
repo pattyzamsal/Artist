@@ -12,8 +12,12 @@ import UIKit
 
 class SomeManager {
     
+    var idArtist = ""
     var nameArtist = ""
-    var listImage = [JSON]()
+    var listURLImages = [String]()
+    var listImages = [UIImage]()
+    var popularity = 0
+    var followers = 0
     
     static let sharedInstance = SomeManager()
 
