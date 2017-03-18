@@ -12,6 +12,7 @@ import UIKit
 
 class SomeManager {
     
+    var idArtist = ""
     var nameArtist = ""
     var listURLImages = [String]()
     var listImages = [UIImage]()

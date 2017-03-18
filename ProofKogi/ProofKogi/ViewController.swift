@@ -82,7 +82,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                             
                             print(info)
                             
-                            SomeManager.sharedInstance.nameArtist = self.listInfo[0]["name"].stringValue
+                            SomeManager.sharedInstance.nameArtist = c
                             self.listImage = self.listInfo[0]["images"].arrayValue
                             
                             var j = 0
@@ -96,6 +96,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                             
                             SomeManager.sharedInstance.popularity = self.listInfo[0]["popularity"].int!
                             SomeManager.sharedInstance.followers = self.listInfo[0]["followers"]["total"].int!
+                            SomeManager.sharedInstance.idArtist = self.listInfo[0]["id"].stringValue
                             
                             j = 0
                             for i in 0..<SomeManager.sharedInstance.listURLImages.count{
