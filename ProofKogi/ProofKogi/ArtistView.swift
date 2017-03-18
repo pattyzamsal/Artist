@@ -25,16 +25,15 @@ class ArtistView: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        artistLabel.setTitle(nameArtist, for: UIControlState())
-        
-        print("ArtistView")
-        print(SomeManager.sharedInstance.nameArtist as AnyObject)
-        print(nameArtist)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        artistLabel.setTitle(SomeManager.sharedInstance.nameArtist, for: UIControlState())
     }
     
     func goBack(){
