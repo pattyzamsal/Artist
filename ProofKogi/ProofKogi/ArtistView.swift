@@ -116,6 +116,7 @@ class ArtistView: UIViewController, UICollectionViewDelegateFlowLayout, UICollec
                     
                     SVProgressHUD.showSuccess(withStatus: NSLocalizedString("Success", comment: ""))
                     
+                    
                 } else {
                     print(response.debugDescription)
                     SVProgressHUD.showError(withStatus: NSLocalizedString("Error while trying to obtain albums", comment: ""))

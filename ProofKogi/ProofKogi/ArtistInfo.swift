@@ -27,6 +27,7 @@ class ArtistInfo: UIViewController, UITextFieldDelegate, UITableViewDelegate, UI
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,13 +40,15 @@ class ArtistInfo: UIViewController, UITextFieldDelegate, UITableViewDelegate, UI
         followersLabel.text = NSLocalizedString("Followers: ", comment: "") + SomeManager.sharedInstance.followers.description
         popularityLabel.text = NSLocalizedString("Popularity: ", comment: "") + SomeManager.sharedInstance.popularity.description
         artistImage.image = SomeManager.sharedInstance.listImages[0]
-        self.tableView.reloadData()
         
         self.throwBasicAlert("", message: NSLocalizedString("Press to the album's name for more information", comment: ""), actions: [
-            ("Ok", { action in
-                self.tableView.reloadData()
-            })
+                ("Ok", { action in
+                })
             ])
+        
+        DispatchQueue.main.async{
+            self.tableView.reloadData()
+        }
     }
     
     func goBack(){
@@ -87,7 +90,7 @@ class ArtistInfo: UIViewController, UITextFieldDelegate, UITableViewDelegate, UI
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let urlAlbum = SomeManager.sharedInstance.listURLAlbums[indexPath.row]
         UIApplication.shared.openURL(NSURL(string: urlAlbum) as! URL)
     }
