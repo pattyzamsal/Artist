@@ -69,7 +69,7 @@ enum Router : URLRequestConvertible {
                 return try URLEncoding.default.encode(urlRequest, with: parameters)
             
             case .albums:
-                let param = ["album_type": "album",] as [String : Any]
+                let param = ["album_type": "album", "limit": "50",] as [String : Any]
                 return try URLEncoding.default.encode(urlRequest, with: param)
             
             default:
