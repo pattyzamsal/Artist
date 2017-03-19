@@ -45,7 +45,7 @@ class ArtistView: UIViewController, UICollectionViewDelegateFlowLayout, UICollec
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.throwBasicAlert("", message: NSLocalizedString("Press to the artist's name for more.", comment: ""), actions: [
+        self.throwBasicAlert("", message: NSLocalizedString("Press to the artist's name for more information", comment: ""), actions: [
                 ("Ok", { action in
                     self.artistLabel.setTitle(SomeManager.sharedInstance.nameArtist, for: UIControlState())
                     self.ImageCollectionView.reloadData()
@@ -64,6 +64,7 @@ class ArtistView: UIViewController, UICollectionViewDelegateFlowLayout, UICollec
         
         SVProgressHUD.show(withStatus: NSLocalizedString("Searching albums", comment: ""))
 
+        self.initStruct()
         
         Alamofire.request(Router.albums(SomeManager.sharedInstance.idArtist))
             .validate()
@@ -89,7 +90,7 @@ class ArtistView: UIViewController, UICollectionViewDelegateFlowLayout, UICollec
                             self.listMarkets.insert(markets, at: j)
                         }
                         else {
-                            self.listMarkets.insert("", at: j)
+                            self.listMarkets.insert(NSLocalizedString("Many", comment: ""), at: j)
                         }
                         j += 1
                     }
@@ -183,17 +184,29 @@ class ArtistView: UIViewController, UICollectionViewDelegateFlowLayout, UICollec
         return CGSize(width: widthPerItem, height: widthPerItem)
     }
     
-    //3
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
         return sectionInsets
     }
     
-    // 4
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return sectionInsets.left
+    }
+    
+    func initStruct(){
+        SomeManager.sharedInstance.listAlbums = [String]()
+        SomeManager.sharedInstance.listURLAlbums = [String]()
+        SomeManager.sharedInstance.listMarkets = [String]()
+        SomeManager.sharedInstance.listImagesAlbums = [UIImage]()
+        
+        listInfo = [JSON]()
+        listImagesURL = [String]()
+        listAlbums = [String]()
+        listURL = [String]()
+        listMarkets = [String]()
+        images = [UIImage]()
     }
 }
