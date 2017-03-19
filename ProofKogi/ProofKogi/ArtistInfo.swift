@@ -87,6 +87,11 @@ class ArtistInfo: UIViewController, UITextFieldDelegate, UITableViewDelegate, UI
         return cell
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let urlAlbum = SomeManager.sharedInstance.listURLAlbums[indexPath.row]
+        UIApplication.shared.openURL(NSURL(string: urlAlbum) as! URL)
+    }
+    
     // Simplifies showing an alert controller
     func throwBasicAlert(_ title: String, message: String, actions: [(String, (UIAlertAction?) -> Void)]) {
         let alertController = UIAlertController(title: title, message: message as String, preferredStyle: .alert)
