@@ -8,8 +8,10 @@
 
 import UIKit
 
-class ArtistInfo: UIViewController {
-
+class ArtistInfo: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var tableView: UITableView!
+    
     @IBOutlet weak var artistImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var followersLabel: UILabel!
@@ -37,9 +39,18 @@ class ArtistInfo: UIViewController {
         followersLabel.text = NSLocalizedString("Followers: ", comment: "") + SomeManager.sharedInstance.followers.description
         popularityLabel.text = NSLocalizedString("Popularity: ", comment: "") + SomeManager.sharedInstance.popularity.description
         artistImage.image = SomeManager.sharedInstance.listImages[0]
+        self.tableView.reloadData()
+        
+        self.throwBasicAlert("", message: NSLocalizedString("Press to the album's name for more information", comment: ""), actions: [
+            ("Ok", { action in
+                self.tableView.reloadData()
+            })
+            ])
     }
     
-
+    func goBack(){
+        self.navigationController?.dismiss(animated: true, completion: nil)
+    }
     
     // MARK: - Navigation
 
@@ -49,4 +60,40 @@ class ArtistInfo: UIViewController {
         // Pass the selected object to the new view controller.
     }
 
+    //****************
+    //
+    //  TableView
+    //
+    //***************
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return SomeManager.sharedInstance.listAlbums.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "albumCell", for: indexPath) as! AlbumCell
+        
+        if indexPath.row < SomeManager.sharedInstance.listImagesAlbums.count {
+            cell.albumImage.image = SomeManager.sharedInstance.listImagesAlbums[indexPath.row]
+            cell.albumMarkets.text = NSLocalizedString("Markets: ", comment: "") + SomeManager.sharedInstance.listMarkets[indexPath.row]
+            cell.albumName.text = SomeManager.sharedInstance.listAlbums[indexPath.row]
+        }
+        
+        return cell
+    }
+    
+    // Simplifies showing an alert controller
+    func throwBasicAlert(_ title: String, message: String, actions: [(String, (UIAlertAction?) -> Void)]) {
+        let alertController = UIAlertController(title: title, message: message as String, preferredStyle: .alert)
+        for (actionTitle, actionHandler) in actions {
+            alertController.addAction(UIAlertAction(title: actionTitle, style: .default, handler: actionHandler))
+        }
+        //Present the AlertController
+        self.present(alertController, animated: true, completion: nil)
+    }
 }
