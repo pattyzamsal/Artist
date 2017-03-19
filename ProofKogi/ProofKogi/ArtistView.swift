@@ -30,7 +30,6 @@ class ArtistView: UIViewController, UICollectionViewDelegateFlowLayout, UICollec
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,12 +38,32 @@ class ArtistView: UIViewController, UICollectionViewDelegateFlowLayout, UICollec
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        artistLabel.setTitle(SomeManager.sharedInstance.nameArtist, for: UIControlState())
-        self.ImageCollectionView.reloadData()
+        self.throwBasicAlert("", message: NSLocalizedString("Press to the artist's name for more.", comment: ""), actions: [
+                ("Ok", { action in
+                    self.artistLabel.setTitle(SomeManager.sharedInstance.nameArtist, for: UIControlState())
+                    self.ImageCollectionView.reloadData()
+                })
+            ])
     }
     
     func goBack(){
         self.navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func artBtn(_ sender: UIButton) {
+        let myVC = storyboard?.instantiateViewController(withIdentifier: "ArtistInfo") as! ArtistInfo
+        myVC.nameArtist = artistLabel.currentTitle!
+        navigationController?.pushViewController(myVC, animated: true)
+    }
+    
+    // Simplifies showing an alert controller
+    func throwBasicAlert(_ title: String, message: String, actions: [(String, (UIAlertAction?) -> Void)]) {
+        let alertController = UIAlertController(title: title, message: message as String, preferredStyle: .alert)
+        for (actionTitle, actionHandler) in actions {
+            alertController.addAction(UIAlertAction(title: actionTitle, style: .default, handler: actionHandler))
+        }
+        //Present the AlertController
+        self.present(alertController, animated: true, completion: nil)
     }
     
     // MARK: - Navigation
