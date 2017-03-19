@@ -21,3 +21,9 @@
 "Artist: " = "Artista: ";
 "Followers: " = "Seguidores: ";
 "Popularity: " = "Popularidad: ";
+"Searching albums" = "Buscando álbumnes";
+"Success" = "Éxito";
+"Error while trying to obtain albums" = "Error obteniendo los álbumnes";
+"Markets: " = "Mercados: ";
+"Many" = "Muchos";
+"Press to the album's name for more information" = "Presiona el nombre del album para más información";

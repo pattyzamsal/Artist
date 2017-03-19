@@ -19,6 +19,13 @@ class ArtistView: UIViewController, UICollectionViewDelegateFlowLayout, UICollec
     var nameArtist = ""
     var imageCounter: Int = 0
     
+    var listInfo = [JSON]()
+    var listImagesURL = [String]()
+    var listAlbums = [String]()
+    var listURL = [String]()
+    var listMarkets = [String]()
+    var images = [UIImage]()
+    
     fileprivate let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
     fileprivate let itemsPerRow: CGFloat = 3
     
@@ -38,7 +45,7 @@ class ArtistView: UIViewController, UICollectionViewDelegateFlowLayout, UICollec
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.throwBasicAlert("", message: NSLocalizedString("Press to the artist's name for more.", comment: ""), actions: [
+        self.throwBasicAlert("", message: NSLocalizedString("Press to the artist's name for more information", comment: ""), actions: [
                 ("Ok", { action in
                     self.artistLabel.setTitle(SomeManager.sharedInstance.nameArtist, for: UIControlState())
                     self.ImageCollectionView.reloadData()
@@ -54,6 +61,67 @@ class ArtistView: UIViewController, UICollectionViewDelegateFlowLayout, UICollec
         let myVC = storyboard?.instantiateViewController(withIdentifier: "ArtistInfo") as! ArtistInfo
         myVC.nameArtist = artistLabel.currentTitle!
         navigationController?.pushViewController(myVC, animated: true)
+        
+        SVProgressHUD.show(withStatus: NSLocalizedString("Searching albums", comment: ""))
+
+        self.initStruct()
+        
+        Alamofire.request(Router.albums(SomeManager.sharedInstance.idArtist))
+            .validate()
+            .responseJSON { response in
+
+                if response.result.isSuccess {
+                    let info = (JSON(response.result.value!))["items"].arrayValue
+                    //"images, url"
+                    self.listInfo = info
+                    
+                    var j = 0
+                    for i in 0..<self.listInfo.count{
+                        
+                        self.listAlbums.insert(self.listInfo[i]["name"].stringValue, at: j)
+                        self.listURL.insert(self.listInfo[i]["external_urls"]["spotify"].debugDescription, at: j)
+                        self.listImagesURL.insert(self.listInfo[i]["images"][0]["url"].debugDescription, at: j)
+                        
+                        if self.listInfo[i]["available_markets"].count <= 5 {
+                            var markets = ""
+                            for k in 0..<self.listInfo[i]["available_markets"].count {
+                                markets += self.listInfo[i]["available_markets"][k].stringValue + "|"
+                            }
+                            self.listMarkets.insert(markets, at: j)
+                        }
+                        else {
+                            self.listMarkets.insert(NSLocalizedString("Many", comment: ""), at: j)
+                        }
+                        j += 1
+                    }
+                    
+                    j = 0
+                    for i in 0..<self.listImagesURL.count{
+                        Alamofire.request(self.listImagesURL[i], method: .get)
+                            .responseImage { response in
+                                if response.result.isSuccess{
+                                    
+                                    self.images.insert((response.result.value?.af_imageRoundedIntoCircle())!, at: j)
+                                    j += 1
+                                    if i == SomeManager.sharedInstance.listURLImages.count - 1{
+                                        SomeManager.sharedInstance.listImagesAlbums = self.images
+                                    }
+                                }
+                        }
+                    }
+
+                    SomeManager.sharedInstance.listURLAlbums = self.listURL
+                    SomeManager.sharedInstance.listAlbums = self.listAlbums
+                    SomeManager.sharedInstance.listMarkets = self.listMarkets
+                    
+                    SVProgressHUD.showSuccess(withStatus: NSLocalizedString("Success", comment: ""))
+                    
+                } else {
+                    print(response.debugDescription)
+                    SVProgressHUD.showError(withStatus: NSLocalizedString("Error while trying to obtain albums", comment: ""))
+                }
+
+        }
     }
     
     // Simplifies showing an alert controller
@@ -116,18 +184,29 @@ class ArtistView: UIViewController, UICollectionViewDelegateFlowLayout, UICollec
         return CGSize(width: widthPerItem, height: widthPerItem)
     }
     
-    //3
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
         return sectionInsets
     }
     
-    // 4
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return sectionInsets.left
     }
-
+    
+    func initStruct(){
+        SomeManager.sharedInstance.listAlbums = [String]()
+        SomeManager.sharedInstance.listURLAlbums = [String]()
+        SomeManager.sharedInstance.listMarkets = [String]()
+        SomeManager.sharedInstance.listImagesAlbums = [UIImage]()
+        
+        listInfo = [JSON]()
+        listImagesURL = [String]()
+        listAlbums = [String]()
+        listURL = [String]()
+        listMarkets = [String]()
+        images = [UIImage]()
+    }
 }

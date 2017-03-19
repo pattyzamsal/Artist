@@ -178,14 +178,59 @@
                                 <rect key="frame" x="16" y="67" width="120" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="81" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RG4-qb-Pf6">
+                                <rect key="frame" x="0.0" y="208" width="375" height="459"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="albumCell" rowHeight="120" id="3mV-O2-kSi" customClass="AlbumCell" customModule="ProofKogi" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="120"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3mV-O2-kSi" id="xKw-RV-Diq">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="119"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ERA-2M-Eee">
+                                                    <rect key="frame" x="25" y="-1" width="80" height="80"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Album markets" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="daj-r1-54Z">
+                                                    <rect key="frame" x="141" y="53" width="234" height="36"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Album name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fnd-Y8-0HF">
+                                                    <rect key="frame" x="141" y="9" width="234" height="36"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="albumImage" destination="ERA-2M-Eee" id="FVy-4F-Afe"/>
+                                            <outlet property="albumMarkets" destination="daj-r1-54Z" id="PnQ-69-PwP"/>
+                                            <outlet property="albumName" destination="fnd-Y8-0HF" id="7fv-Gr-57n"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="OaG-RL-xfE" id="V2v-Ez-Hhc"/>
+                                    <outlet property="delegate" destination="OaG-RL-xfE" id="OsE-3A-C1Q"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="PopularityLabel" destination="lJw-IX-Wj8" id="kbs-9C-PiH"/>
                         <outlet property="artistImage" destination="un3-fq-7zt" id="4fe-bv-xBs"/>
                         <outlet property="followersLabel" destination="MY8-zo-iGX" id="8j0-Yf-LaB"/>
                         <outlet property="nameLabel" destination="suV-kM-JEM" id="Xcj-3a-aqj"/>
+                        <outlet property="popularityLabel" destination="lJw-IX-Wj8" id="SOO-zo-zu9"/>
+                        <outlet property="tableView" destination="RG4-qb-Pf6" id="nJj-Zz-Doi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sET-ug-SM9" userLabel="First Responder" sceneMemberID="firstResponder"/>

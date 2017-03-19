@@ -20,12 +20,17 @@ enum Router : URLRequestConvertible {
     // Search
     case search([String : AnyObject])
     
+    // Albums
+    case albums(String)
+    
     var method: HTTPMethod {
         switch self {
             
         case .search:
             return .get
             
+        case .albums:
+            return .get
         }
     }
     
@@ -34,7 +39,10 @@ enum Router : URLRequestConvertible {
             
         case .search:
             return "search"
-            
+        
+        case .albums(let param):
+            return "artists/\(param)/albums"
+
         default:
             return ""
             
@@ -57,10 +65,15 @@ enum Router : URLRequestConvertible {
         
         switch  self {
             
-        case .search(let parameters):
-            return try URLEncoding.default.encode(urlRequest, with: parameters)
-        default:
-            return urlRequest
+            case .search(let parameters):
+                return try URLEncoding.default.encode(urlRequest, with: parameters)
+            
+            case .albums:
+                let param = ["album_type": "album", "limit": "50",] as [String : Any]
+                return try URLEncoding.default.encode(urlRequest, with: param)
+            
+            default:
+                return urlRequest
         }
     }
 }
