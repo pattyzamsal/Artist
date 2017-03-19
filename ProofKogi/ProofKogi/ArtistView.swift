@@ -63,8 +63,7 @@ class ArtistView: UIViewController, UICollectionViewDelegateFlowLayout, UICollec
         navigationController?.pushViewController(myVC, animated: true)
         
         SVProgressHUD.show(withStatus: NSLocalizedString("Searching albums", comment: ""))
-        
-        print(Router.albums(SomeManager.sharedInstance.idArtist))
+
         
         Alamofire.request(Router.albums(SomeManager.sharedInstance.idArtist))
             .validate()
