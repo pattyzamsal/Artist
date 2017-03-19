@@ -80,8 +80,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
                             
                             self.listInfo = info
                             
-                            print(info)
-                            
                             SomeManager.sharedInstance.nameArtist = self.listInfo[0]["name"].stringValue
                             self.listImage = self.listInfo[0]["images"].arrayValue
                             
@@ -90,8 +88,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                                 self.urlArray.insert(self.listImage[i]["url"].debugDescription, at: j)
                                 j += 1
                             }
-                            
-                            print(self.urlArray.debugDescription)
+
                             SomeManager.sharedInstance.listURLImages = self.urlArray
                             
                             SomeManager.sharedInstance.popularity = self.listInfo[0]["popularity"].int!
