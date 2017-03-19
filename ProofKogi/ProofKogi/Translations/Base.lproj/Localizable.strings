@@ -17,4 +17,7 @@
 "Artist" = "Artista";
 "Search" = "Buscar";
 
-// Artist view
+// ArtistInfo view
+"Artist: " = "Artista: ";
+"Followers: " = "Seguidores: ";
+"Popularity: " = "Popularidad: ";

@@ -50,6 +50,12 @@ class ArtistView: UIViewController, UICollectionViewDelegateFlowLayout, UICollec
         self.navigationController?.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func artBtn(_ sender: UIButton) {
+        let myVC = storyboard?.instantiateViewController(withIdentifier: "ArtistInfo") as! ArtistInfo
+        myVC.nameArtist = artistLabel.currentTitle!
+        navigationController?.pushViewController(myVC, animated: true)
+    }
+    
     // Simplifies showing an alert controller
     func throwBasicAlert(_ title: String, message: String, actions: [(String, (UIAlertAction?) -> Void)]) {
         let alertController = UIAlertController(title: title, message: message as String, preferredStyle: .alert)

@@ -90,6 +90,9 @@
                                 <state key="normal">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="artBtn:" destination="jPX-2o-k8L" eventType="touchUpInside" id="DHK-DR-1FV"/>
+                                </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ROC-e2-WKz">
                                 <rect key="frame" x="0.0" y="117" width="375" height="550"/>
@@ -128,6 +131,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="wOR-n6-x4h"/>
                     <connections>
                         <outlet property="ImageCollectionView" destination="ROC-e2-WKz" id="xTS-xA-MBl"/>
                         <outlet property="artistLabel" destination="nxr-Ip-mGn" id="BGb-z9-YUd"/>
@@ -135,7 +139,58 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uL4-km-aLr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1812" y="42.728635682158924"/>
+            <point key="canvasLocation" x="2751.1999999999998" y="42.728635682158924"/>
+        </scene>
+        <!--Artist Info-->
+        <scene sceneID="3oP-H9-1KQ">
+            <objects>
+                <viewController storyboardIdentifier="ArtistInfo" id="OaG-RL-xfE" customClass="ArtistInfo" customModule="ProofKogi" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VhN-Ja-f9I"/>
+                        <viewControllerLayoutGuide type="bottom" id="Z1S-MG-KVH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XNz-Dk-OCS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="suV-kM-JEM">
+                                <rect key="frame" x="150" y="65" width="225" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Followers" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MY8-zo-iGX">
+                                <rect key="frame" x="150" y="105" width="225" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Popularity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lJw-IX-Wj8">
+                                <rect key="frame" x="150" y="140" width="225" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="un3-fq-7zt">
+                                <rect key="frame" x="16" y="67" width="120" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="PopularityLabel" destination="lJw-IX-Wj8" id="kbs-9C-PiH"/>
+                        <outlet property="artistImage" destination="un3-fq-7zt" id="4fe-bv-xBs"/>
+                        <outlet property="followersLabel" destination="MY8-zo-iGX" id="8j0-Yf-LaB"/>
+                        <outlet property="nameLabel" destination="suV-kM-JEM" id="Xcj-3a-aqj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sET-ug-SM9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3688.8000000000002" y="42.728635682158924"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="D6c-qg-gvd">
@@ -154,6 +209,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5p-zh-C4g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="69.599999999999994" y="42.728635682158924"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="J1g-Qk-7ej">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="s8X-YU-qwA" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="V8X-kO-UVl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="jPX-2o-k8L" kind="relationship" relationship="rootViewController" id="HbH-yF-TyE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8xJ-eJ-5PK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1812" y="42.728635682158924"/>
         </scene>
     </scenes>
 </document>
