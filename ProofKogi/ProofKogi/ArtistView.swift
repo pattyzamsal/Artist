@@ -196,5 +196,4 @@ class ArtistView: UIViewController, UICollectionViewDelegateFlowLayout, UICollec
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return sectionInsets.left
     }
-
 }
